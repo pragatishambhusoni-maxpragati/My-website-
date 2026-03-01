@@ -1,0 +1,245 @@
+<html>
+<head>
+<title>Compilation preocess</title>
+<link rel="stylesheet" href="cascading.css">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+
+
+ <div class="nevbar">
+ <nev id="nev1">
+    <img src="logo.png">
+   <h3 id="title">Education<br>plateform</h3>
+  </nev>
+       <nev id="icon" onclick="openMenu()">
+        <i class="bi bi-list"></i>
+      </nev>
+ </div>
+ <div id="gap">
+   
+ </div>
+ <div class="nevbar2" id="menu">
+   
+     <h6  onclick="goToSection('prepo')">Preprocessing</h6>
+     <h6 onclick="goToSection('com')">Compilation</h6>
+     <h6  onclick="goToSection('assem')">Assembly</h6>
+     <h6 onclick="goToSection('link')">Linking</h6>
+     <h6  onclick="goToSection('load')">Loading</h6>
+   
+ </div>
+  
+  
+  <div class="theory" id="home">
+  
+      <div class="block" id="defi">
+      <h3>Compilation :</h3>
+      <p>
+      Compilation is the automated process of converting a source program into target program.</p>
+      
+      <h6>In simple word:</h6>
+     <p> Compilation is the process of converting a high level language into
+      low level language .</p>
+      
+     
+      </div>
+      
+   
+   <div class="block">
+      <h3>Compiler</h3>
+      <p>
+      Compiler is a translator or language processor used to convert a soure program into target program.
+     </p>
+     
+      <h2>Types of compiler:</h2>
+      <h3>Self or Resident compiler,</h3>
+      <p>When a compiler run on  same machine and  produces machine code for the same machine on which it is running called the self or resident compiler.</p>
+      
+      <h3>Cross compiler,</h3>
+      <p>When a compiler run on one machine and produces the machine code for another machine in that case it is  called the cross compiler.</p>
+  <h5 class="sm">* Example of compiler:</h5>
+     <ul>
+     <li>gcc(GNU C Compiler)</li>
+     <li>icc(Intel C Compiler)</li>
+     </ul>
+  <p class="sm">* when we run a program</p>
+     <p> gcc hello.c -o hello</p>
+  <p class="sm">* gcc internally performs four distinct  stages:</p> 
+     
+     
+      <div class="stapes">   
+         <h5>  Preprocessing :</h5>
+          <p>gcc-E hello.c -o hello.i<br>hello.c -> hello.i</p>
+        
+         
+         
+        <h5> Compilation :</h5>
+         <p>gcc-S hello.i -o hello.s<br>hello.i -> hello.s</p>
+        
+          
+         
+         <h5>Assembling :</h5>
+         <p> gcc-C hello.s -o hello.o<br>hello.s -> hello.o</p>
+        
+         
+        
+         <h5>Linking object file:</h5>
+         <p> gcc hello.o -o hello <br>hello.o -> executable (a.out)</p>
+         
+         
+     </div>
+     
+     
+  </div>
+     
+   <div id="prepo" class="block">
+      <h5 class="head">PREPROCESSING</h5>  
+      
+      <h3>Handled by:preprocessor</h3>
+      <h3>Output :Expanded source code(.i file)</h3>
+      <h4>What happens here ?</h4>
+     <p>
+     Expansion of header files<br>macro substitution<br>condition compilation
+    </p>
+     
+      <h4>What it does :-</h4>
+         <ul type="square">
+            <li> Header file expention:It copies the entire content of header file into source file</li>
+            <li>Macro substitution:pure Text replacement,</li>
+            <li>Conditional compilation:Code inclusion/exclusion happens here</li>
+        </ul>
+     <h4>what does not happens here :-</h4>
+         <ul type="square">
+             <li>syntax checking</li>
+             <li>Type checking</li>
+             <li>Function existence checking</li>
+        </ul>
+   </div>  
+   
+   
+   <div id="com" class="block">
+      <h5 class="head">COMPILATION</h5>  
+      
+      <h3>Handled by:Cimpiler</h3>
+      <h3>Output :Assemby code file(.s file)</h3>
+      <h4>What happens here ?</h4>
+     <p>
+     Syntax analysis<br>Semantic analysis<br>Verification of function(prototypes)
+    </p>
+     
+      <h4>What it does :-</h4>
+         <ul type="square">
+            <li>syntax analysis :</li>
+ <pre>
+  code:
+  int a
+  [ ';' is missing]
+  char c;
+           
+ </pre>
+            <li>semantic analysis:</li>
+  <pre>
+  code:
+  int a;
+  a="hello";
+  [a is  int ,and 
+  "hello" is a string]
+  [semantic error]
+            
+   </pre>
+         <li>verification of function:</li>
+ <pre>
+  code:
+  int add(int,int);
+  </pre>
+                   <ul type="dote">
+                      <li>Number of argument,</li>
+                      <li>Type of argument,</li>
+                       <li>Return type compatibility,</li>
+                    </ul>
+        </ul>
+       
+   </div> 
+   
+      <div id="assem" class="block">
+      <h5 class="head">ASSEMBLY</h5>  
+      
+      <h3>Handled by:Assembler</h3>
+      <h3>Output : Relocatable object file(o.file)</h3>
+      <h4>What happens here ?</h4>
+     <ul type="circle">
+       <li>Converts the assembly code into machine code,</li>
+       <li>Creats its own symbol table</li>
+       
+  
+  </ul>
+     
+      <h4>Types of Assembler:-</h4>
+         <ul type="square">
+            <li>One-pass ,</li>
+              <li>Two-pass,</li>
+         </ul>
+   </div>
+   
+   
+   
+   
+   <div class="block" id="link">
+      <h5 class="head">LINKING</h5>  
+      
+      <h3>Handled by:Linker</h3>
+      <h3>Output :executable file(a.out)</h3>
+      <h4>What happens here ?</h4>
+     <ul type="circle">
+       <li>Resolves undefined symbols,</li>
+       <li>Combines:object file,Librarie</li>
+       <li> Resolves function calls(like printf),</li>
+  
+  </ul>
+     
+      <h4>Types of linking:-</h4>
+         <ul type="square">
+            <li>Static linking :</li>
+              <li>Dynamic linking</li>
+         </ul>
+   </div>
+   
+   <div class="block" id="load">
+      <h5 class="head">LOADING</h5>  
+      
+      <h3>Handled by:Loader</h3>
+      
+      <h4>What happens here ?</h4>
+     <ul type="circle">
+     <li>Evaluate code and data,</li>
+     <li>Allocate address space,</li>
+     <li>Load dependent Libraries,</li>
+     <li>precess registration</li>
+    </ul>
+     
+
+   </div>
+     
+  </div>
+
+   <div id="sideMenu">
+     <a onclick="showHome()">home</a>
+     <a  onclick="goToSection('defi')">Compiler</a>
+     <a  onclick="goToSection('prepo')">Preprocessing</a>
+     <a  onclick="goToSection('com')">Compilation</a>
+     <a  onclick="goToSection('assem')">Assembly</a>
+     <a onclick="goToSection('link')">Linking</a>
+     <a onclick="goToSection('load')">Loading</a>
+     <a onclick="closeMenu()">close</a>
+     
+   </div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
